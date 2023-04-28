@@ -253,7 +253,7 @@ app.layout = html.Div(
                     ),
                     #HIV 
                     html.H6('HIV/AIDS'),
-                    html.P('Prevalence of thinness among children and adolescents for Age 5 to 9 (%) | percentage '),
+                    html.P('Deaths per 1 000 live births HIV/AIDS (0-4 years) | people '),
                     dcc.Slider(0,20, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='hiv-slider1',
                     value = 4
