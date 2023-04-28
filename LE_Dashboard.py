@@ -184,16 +184,9 @@ app.layout = html.Div(
                     # Adult Mortality rate
                     html.H6('Adult Mortality rate'),
                     html.P('Select number of people | per 1000 population | Between Ages 15-60 '),
-                    dcc.Slider(0,800, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    dcc.Slider(0,600, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='admort-slider1',
                     value = 200
-                    ),
-                    #Infant deaths
-                    html.H6('Infant deaths'),
-                    html.P('Select number of people | per 1000 population '),
-                    dcc.Slider(0,1000, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='infdeath-slider1',
-                    value = 100
                     ),
                     #Alcohol Consumption
                     html.H6('Alcohol Consumption'),
@@ -202,20 +195,6 @@ app.layout = html.Div(
                     id='alc-slider1',
                     value = 4
                     ),
-                    #Hepatitis B
-                    html.H6('Hepatitis B'),
-                    html.P('Select Hepatitis B immunization coverage percentage(%) | Among 1-year-olds '),
-                    dcc.Slider(0,100, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='hep-slider1',
-                    value = 80
-                    ),
-                    #Measles
-                    html.H6('Measles'),
-                    html.P('Select Measles cases value | per 100 000 people '),
-                    dcc.Slider(0,1000, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='meas-slider1',
-                    value = 40
-                    ),
                     #BMI
                     html.H6('BMI'),
                     html.P('Select average BMI | total population '),
@@ -223,26 +202,12 @@ app.layout = html.Div(
                     id='bmi-slider1',
                     value = 30
                     ),
-                    #Under 5 deaths
-                    html.H6('Under 5 deaths'),
-                    html.P('Select number of under 5 deaths | per 10 000 '),
-                    dcc.Slider(0,10000, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='5death-slider1',
-                    value = 300
-                    ),
                     #Polio
                     html.H6('Polio'),
                     html.P('Select Polio immunization coverage percentage(%) | Among 1-year-olds '),
                     dcc.Slider(0,100, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='pol-slider1',
                     value = 65
-                    ),
-                    #Total Expnditure
-                    html.H6('Total Expnditure'),
-                    html.P('Select General government expenditure on health | percentage(%) of total government expenditure '),
-                    dcc.Slider(0,100, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='exp-slider1',
-                    value = 60
                     ),
                     #Diphtheria
                     html.H6('Diphtheria'),
@@ -261,9 +226,37 @@ app.layout = html.Div(
                     #Schooling 
                     html.H6('Schooling '),
                     html.P('Select number of years of schooling | years '),
-                    dcc.Slider(0,21, step=1,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    dcc.Slider(0,15, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='sch-slider1',
-                    value = 14
+                    value = 10
+                    ),
+                    #GDP 
+                    html.H6('GDP '),
+                    html.P('Gross Domestic Product per capita (in USD) | per years '),
+                    dcc.Slider(0,7000, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    id='gdp-slider1',
+                    value = 1300
+                    ),
+                    #Thinness 10-19 years 
+                    html.H6('Thinness 10-19 years'),
+                    html.P('Prevalence of thinness among children and adolescents for Age 10 to 19 (%) | percentage '),
+                    dcc.Slider(0,20, step=1,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    id='t119-slider1',
+                    value = 16
+                    ),
+                    #Thinness 5-9 years 
+                    html.H6('Thinness 5-9 years'),
+                    html.P('Prevalence of thinness among children and adolescents for Age 5 to 9 (%) | percentage '),
+                    dcc.Slider(0,1, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    id='t59-slider1',
+                    value = 9
+                    ),
+                    #HIV 
+                    html.H6('HIV/AIDS'),
+                    html.P('Prevalence of thinness among children and adolescents for Age 5 to 9 (%) | percentage '),
+                    dcc.Slider(0,20, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    id='hiv-slider1',
+                    value = 4
                     ),
                     html.Br(),
                     # Prediction
@@ -286,86 +279,79 @@ app.layout = html.Div(
                     # Adult Mortality rate
                     html.H6('Adult Mortality rate'),
                     html.P('Select number of people | per 1000 population | Between Ages 15-60 '),
-                    dcc.Slider(0,800, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    dcc.Slider(0,600, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='admort-slider2',
                     value = 400
-                    ),
-                    #Infant deaths
-                    html.H6('Infant deaths'),
-                    html.P('Select number of people | per 1000 population '),
-                    dcc.Slider(0,1000, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='infdeath-slider2',
-                    value = 500
                     ),
                     #Alcohol Consumption
                     html.H6('Alcohol Consumption'),
                     html.P('Select alcohol consumption value | litres of pure alcohol '),
                     dcc.Slider(0,20, step=1,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='alc-slider2',
-                    value = 10
-                    ),
-                    #Hepatitis B
-                    html.H6('Hepatitis B'),
-                    html.P('Select Hepatitis B immunization coverage percentage(%) | Among 1-year-olds '),
-                    dcc.Slider(0,100, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='hep-slider2',
-                    value = 50
-                    ),
-                    #Measles
-                    html.H6('Measles'),
-                    html.P('Select Measles cases value | per 100 000 people '),
-                    dcc.Slider(0,1000, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='meas-slider2',
-                    value = 400
+                    value = 13
                     ),
                     #BMI
                     html.H6('BMI'),
                     html.P('Select average BMI | total population '),
                     dcc.Slider(0,90, step=1,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='bmi-slider2',
-                    value = 40
-                    ),
-                    #Under 5 deaths
-                    html.H6('Under 5 deaths'),
-                    html.P('Select number of under 5 deaths | per 10 000 '),
-                    dcc.Slider(0,10000, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='5death-slider2',
-                    value = 900
+                    value = 70
                     ),
                     #Polio
                     html.H6('Polio'),
                     html.P('Select Polio immunization coverage percentage(%) | Among 1-year-olds '),
                     dcc.Slider(0,100, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='pol-slider2',
-                    value = 40
-                    ),
-                    #Total Expnditure
-                    html.H6('Total Expnditure'),
-                    html.P('Select General government expenditure on health | percentage(%) of total government expenditure '),
-                    dcc.Slider(0,100, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
-                    id='exp-slider2',
-                    value = 40
+                    value = 35
                     ),
                     #Diphtheria
                     html.H6('Diphtheria'),
                     html.P('Select Diphtheria immunization coverage percentage(%) | Among 1-year-olds '),
                     dcc.Slider(0,100, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='dip-slider2',
-                    value = 60
+                    value = 80
                     ),
                     #Income composition of resources 
                     html.H6('Income composition of resources '),
                     html.P('Select Human Development Index in terms of income composition of resources | index range from 0 to 1 '),
                     dcc.Slider(0,1, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='inc-slider2',
-                    value = 0.6
+                    value = 0.7
                     ),
                     #Schooling 
                     html.H6('Schooling '),
                     html.P('Select number of years of schooling | years '),
-                    dcc.Slider(0,21, step=1,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    dcc.Slider(0,15, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
                     id='sch-slider2',
-                    value = 12
+                    value = 8
+                    ),
+                    #GDP 
+                    html.H6('GDP '),
+                    html.P('Gross Domestic Product per capita (in USD) | per years '),
+                    dcc.Slider(0,7000, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    id='gdp-slider2',
+                    value = 6000
+                    ),
+                    #Thinness 10-19 years 
+                    html.H6('Thinness 10-19 years'),
+                    html.P('Prevalence of thinness among children and adolescents for Age 10 to 19 (%) | percentage '),
+                    dcc.Slider(0,20, step=1,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    id='t119-slider2',
+                    value = 11
+                    ),
+                    #Thinness 5-9 years 
+                    html.H6('Thinness 5-9 years'),
+                    html.P('Prevalence of thinness among children and adolescents for Age 5 to 9 (%) | percentage '),
+                    dcc.Slider(0,1, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    id='t59-slider2',
+                    value = 22
+                    ),
+                    #HIV 
+                    html.H6('HIV/AIDS'),
+                    html.P('Deaths per 1 000 live births HIV/AIDS (0-4 years) | people '),
+                    dcc.Slider(0,20, step=None,  marks=None, tooltip={"placement": "bottom", "always_visible": True},
+                    id='hiv-slider2',
+                    value = 11
                     ),
                     html.Br(),
                     # Prediction
@@ -416,40 +402,39 @@ def update_line_chart(continents):
     Output('prediction1', 'children'),
     [Input('status-radio1', 'value'),
     Input('admort-slider1', 'value'),
-    Input('infdeath-slider1', 'value'),
     Input('alc-slider1', 'value'),
-    Input('hep-slider1', 'value'),
-    Input('meas-slider1', 'value'),
     Input('bmi-slider1', 'value'),
-    Input('5death-slider1', 'value'),
     Input('pol-slider1', 'value'),
-    Input('exp-slider1', 'value'),
     Input('dip-slider1', 'value'),
+    Input('hiv-slider1', 'value'),
+    Input('gdp-slider1', 'value'),
+    Input('t119-slider1', 'value'),
+    Input('t59-slider1', 'value'),
     Input('inc-slider1', 'value'),
-    Input('sch-slider1', 'value')])
-def first_prediction(status,admortality,infdeaths,alcohol,hepatitis,measles,bmi,und5deaths,polio,expend,diphth,income,school):
+    Input('sch-slider1', 'value')
+    ])
+def first_prediction(status,admortality,alcohol,bmi,polio,diphth,hiv,gdp,t119,t59,income,school):
     # Assign Inputs and create dataframe
-    
-    modelled_columns = {'Status': pd.Series(dtype='int'), 
-        'Adult Mortality': pd.Series(dtype='float'), 
-        'infant deaths': pd.Series(dtype='int'), 
-        'Alcohol': pd.Series(dtype='float'), 
-        'Hepatitis B': pd.Series(dtype='float'), 
-        'Measles ': pd.Series(dtype='int'), 
-        ' BMI ': pd.Series(dtype='float'), 
-        'under-five deaths ': pd.Series(dtype='int'), 
-        'Polio': pd.Series(dtype='float'), 
-        'Total expenditure': pd.Series(dtype='float'), 
-        'Diphtheria ': pd.Series(dtype='float'), 
-        'Income composition of resources': pd.Series(dtype='float'), 
-        'Schooling': pd.Series(dtype='float')}
 
-    input_data = [[status,admortality,infdeaths,alcohol,hepatitis,measles,bmi,und5deaths,polio,expend,diphth,income,school]]
+    modelled_columns = {'Status': pd.Series(dtype='int64'), 
+        'Adult Mortality': pd.Series(dtype='float64'), 
+        'Alcohol': pd.Series(dtype='float64'), 
+        ' BMI ': pd.Series(dtype='float64'), 
+        'Polio': pd.Series(dtype='float64'), 
+        'Diphtheria ': pd.Series(dtype='float64'), 
+        ' HIV/AIDS': pd.Series(dtype='float64'), 
+        'GDP': pd.Series(dtype='float64'),
+        ' thinness  1-19 years': pd.Series(dtype='float64'), 
+        ' thinness 5-9 years': pd.Series(dtype='float64'),
+        'Income composition of resources': pd.Series(dtype='float64'),  
+        'Schooling': pd.Series(dtype='float64')}
+
+    input_data = [[status,admortality,alcohol,bmi,polio,diphth,hiv,gdp,t119,t59,income,school]]
 
     pred1_df = pd.DataFrame(data=input_data, columns = modelled_columns, index=[0])
 
     # Predict
-    pred1 = regr_modelknn.predict(pred1_df).astype('str')
+    pred1 = rf_model.predict(pred1_df).astype('str')
 
     return pred1
 
@@ -460,40 +445,39 @@ def first_prediction(status,admortality,infdeaths,alcohol,hepatitis,measles,bmi,
     Output('prediction2', 'children'),
     [Input('status-radio2', 'value'),
     Input('admort-slider2', 'value'),
-    Input('infdeath-slider2', 'value'),
     Input('alc-slider2', 'value'),
-    Input('hep-slider2', 'value'),
-    Input('meas-slider2', 'value'),
     Input('bmi-slider2', 'value'),
-    Input('5death-slider2', 'value'),
     Input('pol-slider2', 'value'),
-    Input('exp-slider2', 'value'),
     Input('dip-slider2', 'value'),
+    Input('hiv-slider2', 'value'),
+    Input('gdp-slider2', 'value'),
+    Input('t119-slider2', 'value'),
+    Input('t59-slider2', 'value'),
     Input('inc-slider2', 'value'),
-    Input('sch-slider2', 'value')])
-def first_prediction(status,admortality,infdeaths,alcohol,hepatitis,measles,bmi,und5deaths,polio,expend,diphth,income,school):
+    Input('sch-slider2', 'value')
+    ])
+def first_prediction(status,admortality,alcohol,bmi,polio,diphth,hiv,gdp,t119,t59,income,school):
     # Assign Inputs and create dataframe
-    modelled_columns = {'Status': pd.Series(dtype='int'), 
-        'Adult Mortality': pd.Series(dtype='float'), 
-        'infant deaths': pd.Series(dtype='int'), 
-        'Alcohol': pd.Series(dtype='float'), 
-        'Hepatitis B': pd.Series(dtype='float'), 
-        'Measles ': pd.Series(dtype='int'), 
-        ' BMI ': pd.Series(dtype='float'), 
-        'under-five deaths ': pd.Series(dtype='int'), 
-        'Polio': pd.Series(dtype='float'), 
-        'Total expenditure': pd.Series(dtype='float'), 
-        'Diphtheria ': pd.Series(dtype='float'), 
-        'Income composition of resources': pd.Series(dtype='float'), 
-        'Schooling': pd.Series(dtype='float')}
 
-    input_data = [[status,admortality,infdeaths,alcohol,hepatitis,measles,bmi,und5deaths,polio,expend,diphth,income,school]]
+    modelled_columns = {'Status': pd.Series(dtype='int64'), 
+        'Adult Mortality': pd.Series(dtype='float64'), 
+        'Alcohol': pd.Series(dtype='float64'), 
+        ' BMI ': pd.Series(dtype='float64'), 
+        'Polio': pd.Series(dtype='float64'), 
+        'Diphtheria ': pd.Series(dtype='float64'), 
+        ' HIV/AIDS': pd.Series(dtype='float64'), 
+        'GDP': pd.Series(dtype='float64'),
+        ' thinness  1-19 years': pd.Series(dtype='float64'), 
+        ' thinness 5-9 years': pd.Series(dtype='float64'),
+        'Income composition of resources': pd.Series(dtype='float64'),  
+        'Schooling': pd.Series(dtype='float64')}
+
+    input_data = [[status,admortality,alcohol,bmi,polio,diphth,hiv,gdp,t119,t59,income,school]]
 
     pred2_df = pd.DataFrame(data=input_data, columns = modelled_columns, index=[0])
-    
 
     # Predict
-    pred2 = regr_modelknn.predict(pred2_df).astype('str')
+    pred2 = rf_model.predict(pred2_df).astype('str')
 
     return pred2
 
