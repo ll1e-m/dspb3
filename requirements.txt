@@ -1,6 +1,6 @@
 Dash==2.6.0
 pandas
-sklearn
+scikit-learn
 gunicorn 
 numpy
 dash_bootstrap_components
