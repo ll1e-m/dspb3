@@ -22,7 +22,7 @@ data_df_original = pd.read_csv('Life Expectancy Data.csv', sep = ",")
 data_df = data_df_original.copy()
 
 #delete feautures
-data_clean=data_df.drop(['Year','Country','percentage expenditure','GDP','Population',' thinness  1-19 years',' thinness 5-9 years',' HIV/AIDS'], axis=1)
+data_clean=data_df.drop(['Year','Country','under-five deaths ','infant deaths','Hepatitis B','Population','Measles ','Total expenditure','Population','percentage expenditure'], axis=1)
 
 #Transform Year into numeric ordinal datatype
 #data_clean[['Year']] =data_clean[['Year']].replace(to_replace={'2000':0,'2001':1,'2002':2,'2003':3,'2004':4,'2005':5,'2006':6,'2007':7,'2008':8,'2009':9,'2010':10,'2011':11,'2012':12,'2013':13,'2014':14,'2015':15})
@@ -39,9 +39,9 @@ for featureimputationmean in [
 
 #Fill NaN with median values
 for featureimputationmedian in [
-    'Life expectancy ','Adult Mortality','Hepatitis B','Schooling','Polio' ,'Total expenditure','Diphtheria '
+    'Life expectancy ','Adult Mortality',' BMI ','Schooling','Polio' ,'Diphtheria ',' thinness  1-19 years',' thinness 5-9 years', 'GDP'
 ]:
-    data_clean[featureimputationmedian].fillna(data_clean[featureimputationmedian].mean(),inplace=True)
+    data_clean[featureimputationmedian].fillna(data_clean[featureimputationmedian].median(),inplace=True)
 
 # Convert Life expectancy the float column to an integer column
 data_clean['Life expectancy '] = data_clean['Life expectancy '].astype(int)
@@ -70,15 +70,16 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 ########################## TRAIN MODEL & EVALUATE 
 
 
-from sklearn.neighbors import KNeighborsRegressor
+from sklearn.ensemble import RandomForestRegressor
 
-#instantiate the model
-regr_modelknn = KNeighborsRegressor(n_neighbors=20)
-# .fit() the model
-regr_modelknn.fit(X_train, y_train)
+# Create a Random Forest Regression model and fit it to the training data
+rf_model = RandomForestRegressor(n_estimators=50, random_state=0)
+rf_model.fit(X_train, y_train)
 
-# Compute predictions on test data
-y_test_predictions = regr_modelknn.predict(X_test)
+# Make predictions on the test data
+y_test_pred = rf_model.predict(X_test)
+# Make predictions on the train data
+y_train_pred = rf_model.predict(X_train)
 
 ########################## FIGURES (NO CALLBACK)
 
