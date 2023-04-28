@@ -125,6 +125,7 @@ app.layout = html.Div(
         html.Div([
             html.H3('Relationship between Life Expectancy and user selected feature'),
             html.P("Use the radio buttons below to change the y axis on the graph below. Then press the 'play' button to see the relationship play out over time"),
+            html.P("----->Run time for radio buttons may be slow (up to 10 seconds to load the bubble chart) due to free tier deployment resource limitation"),
                 dcc.RadioItems(
                     id='radio',
                     options= list(df_le.drop(['Country','Year','Life expectancy','thinness 10-19 years','thinness 5-9 years','Country Code2','Country Code3'], axis=1).columns.values),
