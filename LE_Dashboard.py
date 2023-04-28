@@ -96,7 +96,7 @@ fig2.update_layout(autosize=True, width=900, height=600)
 ########################## INITIALIZE APP
 
 app = Dash(__name__,external_stylesheets=[dbc.themes.BOOTSTRAP])
-
+server=app.server
 load_figure_template('LUX')
 
 
